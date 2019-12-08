@@ -13,7 +13,7 @@ public class Genre {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "subgenre_of", fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @Column(name = "subgenre_of")
     private Genre subgenre_of;
 

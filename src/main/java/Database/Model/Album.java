@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "album")
-
 public class Album {
 
     @Id
@@ -35,11 +34,14 @@ public class Album {
     private Label label;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Type type;
+    private Type    type;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Song> songs = new ArrayList<Song>();
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Release> releases = new ArrayList<>();
+
+    @OneToOne(mappedBy = "album_id")
+    private AlbumArt albumArt;
 }

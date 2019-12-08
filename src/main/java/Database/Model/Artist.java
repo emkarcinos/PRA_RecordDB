@@ -14,12 +14,13 @@ public class Artist {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "webpage")
-    private String webpage;
+    @OneToOne
+    @Column(name = "concact")
+    private ContactInfo contactInfo;
 
-    @ManyToMany(mappedBy = "artist", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
     private Set<Album> albums = new HashSet<Album>();
 
-    @OneToMany(mappedBy = "artists", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "artists", fetch = FetchType.LAZY)
     private List<Label> labels = new ArrayList<>();
 }

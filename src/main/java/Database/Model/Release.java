@@ -19,4 +19,7 @@ public class Release {
     @Column(name = "format")
     private String format;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Album album;
+
 }
