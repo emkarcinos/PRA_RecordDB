@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "release")
@@ -15,6 +16,7 @@ public class Release implements Serializable {
     private int id;
 
     @Column(name = "year")
+    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
     private DateTime year;
 
     @Column(name = "format")

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "type")
-public class Type implements Serializable {
+public class AlbumType implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -19,7 +19,7 @@ public class Type implements Serializable {
     @OneToMany(mappedBy = "type", fetch = FetchType.LAZY)
     private List<Album> albums = new ArrayList<>();
 
-    public Type() {
+    public AlbumType() {
     }
 
     public int getId() {

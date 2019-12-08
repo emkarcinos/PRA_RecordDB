@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "album")
@@ -20,7 +21,8 @@ public class Album implements Serializable {
     private String name;
 
     @Column(name = "year")
-    private DateTime year;
+    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
+    public DateTime year;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genre")
@@ -33,7 +35,7 @@ public class Album implements Serializable {
     private Label label;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Type type;
+    private AlbumType type;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Song> songs = new ArrayList<Song>();
@@ -71,7 +73,7 @@ public class Album implements Serializable {
         return label;
     }
 
-    public Type getType() {
+    public AlbumType getType() {
         return type;
     }
 
@@ -111,7 +113,7 @@ public class Album implements Serializable {
         this.label = label;
     }
 
-    public void setType(Type type) {
+    public void setType(AlbumType type) {
         this.type = type;
     }
 
