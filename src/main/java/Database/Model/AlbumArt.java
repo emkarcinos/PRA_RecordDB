@@ -1,18 +1,45 @@
 package Database.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "album_art")
-public class AlbumArt {
+public class AlbumArt implements Serializable {
     @Id
     @OneToOne
-    @Column(name = "album_id")
-    private Album album_id;
+    private Album album;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "path")
     private String path;
+
+    public AlbumArt() {
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

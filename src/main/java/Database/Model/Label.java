@@ -1,6 +1,7 @@
 package Database.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "label")
-public class Label {
+public class Label implements Serializable {
 
     @Id
     @GeneratedValue
@@ -27,4 +28,46 @@ public class Label {
     @OneToMany(mappedBy = "label", fetch = FetchType.LAZY)
     private Set<Album> albums = new HashSet<>();
 
+    public Label() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getWebpage() {
+        return webpage;
+    }
+
+    public List<Artist> getArtists() {
+        return artists;
+    }
+
+    public Set<Album> getAlbums() {
+        return albums;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWebpage(String webpage) {
+        this.webpage = webpage;
+    }
+
+    public void setArtists(List<Artist> artists) {
+        this.artists = artists;
+    }
+
+    public void setAlbums(Set<Album> albums) {
+        this.albums = albums;
+    }
 }

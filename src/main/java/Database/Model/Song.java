@@ -1,10 +1,11 @@
 package Database.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "song")
-public class Song {
+public class Song implements Serializable {
 
     @Id
     @Column(name = "disc")
@@ -20,4 +21,38 @@ public class Song {
     @ManyToOne(fetch = FetchType.LAZY)
     private Album album;
 
+    public Song() {
+    }
+
+    public int getDisc() {
+        return disc;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setDisc(int disc) {
+        this.disc = disc;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
 }
