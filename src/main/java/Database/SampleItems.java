@@ -1,6 +1,7 @@
 package Database;
 
 import Database.Model.*;
+import Database.Queries.Queries;
 import JSON.Writer;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDateTime;
@@ -12,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class SampleItems {
-    public static void create(EntityManager manager){
+    public static void create(EntityManager manager) {
         Label label1 = new Label();
         label1.setName("ECM");
         label1.setWebpage("https://www.ecmrecords.com");
@@ -25,7 +26,7 @@ public class SampleItems {
         labels.add(label1);
         labels.add(label2);
 
-        for(Label label : labels)
+        for (Label label : labels)
             manager.persist(label);
 
         Genre genre1 = new Genre();
@@ -70,7 +71,7 @@ public class SampleItems {
         genres.add(genre6);
         genres.add(genre7);
 
-        for(Genre genre : genres)
+        for (Genre genre : genres)
             manager.persist(genre);
 
         Artist artist1 = new Artist();
@@ -83,7 +84,6 @@ public class SampleItems {
         Artist artist2 = new Artist();
         artist2.setName("Tesseract");
         artist2.setLabels(a1Labels);
-
 
 
         Artist artist3 = new Artist();
@@ -103,9 +103,9 @@ public class SampleItems {
         artists.add(artist3);
         artists.add(artist4);
 
-        for(Artist artist : artists)
+        for (Artist artist : artists)
             manager.persist(artist);
-            manager.flush();
+        manager.flush();
 
             /*
         ContactInfo contact2 = new ContactInfo();
@@ -143,9 +143,9 @@ public class SampleItems {
         albumTypes.add(type2);
         albumTypes.add(type3);
 
-        for(AlbumType type : albumTypes)
+        for (AlbumType type : albumTypes)
             manager.persist(type);
-            manager.flush();
+        manager.flush();
 
         Album album1 = new Album();
         album1.setName("Litania: Music of Krzysztof Komeda");
@@ -167,9 +167,9 @@ public class SampleItems {
         albums.add(album1);
         albums.add(album2);
 
-        for(Album album : albums)
+        for (Album album : albums)
             manager.persist(album);
-            manager.flush();
+        manager.flush();
 
         Song song11 = new Song();
         song11.setDisc(1);
@@ -229,9 +229,9 @@ public class SampleItems {
         songs1.add(song17);
         songs1.add(song18);
 
-        for(Song song : songs1)
+        for (Song song : songs1)
             manager.persist(song);
-            manager.flush();
+        manager.flush();
 
         Song song21 = new Song();
         song21.setDisc(1);
@@ -277,14 +277,19 @@ public class SampleItems {
         songs2.add(song25);
         songs2.add(song26);
 
-        for(Song song : songs2)
+        for (Song song : songs2)
             manager.persist(song);
-            manager.flush();
+        manager.flush();
 
+        try {
+            Queries queries = new Queries(manager);
+            Writer<Album> albumWriter = new Writer<Album>();
+            List<Album> result1 = queries.getAlbumsFromArtist(artist3);
+            albumWriter.serializeList("json/results/query1.json", result1);
 
-        Writer<Song> songWriter = new Writer<Song>();
-        try{
-            songWriter.serializeList("json/sample.json", songs1);
+            Writer<Song> songWriter = new Writer<Song>();
+            List<Song> result2 = queries.getSongsOnAlbum(album1);
+            songWriter.serializeList("json/results/query2.json", result2);
         } catch (IOException e) {
             e.printStackTrace();
         }

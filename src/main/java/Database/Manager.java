@@ -4,6 +4,8 @@ import Database.Model.Album;
 import Database.Model.Artist;
 import Database.Model.Genre;
 import Database.Model.Label;
+import Database.Queries.Queries;
+import JSON.Writer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,6 +27,7 @@ public class Manager {
 
             entityManager.getTransaction().begin();
 
+            /*
             List<Label> labels = JSON.Reader.createLabelsFromJson("json/sampleLabels.json");
 
             for(Label label : labels)
@@ -44,6 +47,11 @@ public class Manager {
 
             //for(Album album : albums)
             //    entityManager.persist(album);
+
+
+            */
+
+            SampleItems.create(entityManager);
 
             entityManager.flush();
             entityManager.getTransaction().commit();

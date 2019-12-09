@@ -16,13 +16,13 @@ public class Queries {
 
     public List<Album> getAlbumsFromArtist(Artist artist){
         TypedQuery<Album> query = entityManager.createQuery(
-                "SELECT a FROM album a WHERE a.artist_name LIKE " + artist.getName() + "ORDER BY a.name ASC", Album.class);
+                "SELECT a FROM album a WHERE a.artist_name LIKE " + artist.getName() + " ORDER BY a.name ASC", Album.class);
         return query.getResultList();
     }
 
     public List<Song> getSongsOnAlbum(Album album){
         TypedQuery<Song> query = entityManager.createQuery(
-                "SELECT s FROM song WHERE s.album_id = " + album.getId() + "ORDER BY s.disc ASC, s.number ASC", Song.class);
+                "SELECT s FROM song WHERE s.album_id = " + album.getId() + " ORDER BY s.disc ASC, s.number ASC", Song.class);
         return query.getResultList();
     }
 
