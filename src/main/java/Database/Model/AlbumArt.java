@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "album")
+        property = "album", scope = AlbumArt.class)
 @Entity
 @Table(name = "album_art")
 public class AlbumArt implements Serializable {

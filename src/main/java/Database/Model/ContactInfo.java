@@ -7,13 +7,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "artist")
+        property = "artist", scope = ContactInfo.class)
 @Entity
 @Table(name = "contact_info")
 public class ContactInfo implements Serializable {
 
     @Id
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Artist artist;
 
     @Column(name = "webpage")

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+        property = "id", scope = Label.class)
 @Entity
 @Table(name = "label")
 public class Label implements Serializable {
@@ -27,10 +27,10 @@ public class Label implements Serializable {
     @Column(name = "webpage")
     private String webpage;
 
-    @ManyToMany(mappedBy = "labels", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "labels", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Artist> artists = new ArrayList<>();
 
-    @OneToMany(mappedBy = "label", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "label", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Album> albums = new HashSet<>();
 
     public Label() {

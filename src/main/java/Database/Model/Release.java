@@ -9,7 +9,7 @@ import java.io.Serializable;
 import org.hibernate.annotations.Type;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+        property = "id", scope = Release.class)
 @Entity
 @Table(name = "release")
 public class Release implements Serializable {

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+        property = "id", scope = AlbumType.class)
 @Entity
 @Table(name = "type")
 public class AlbumType implements Serializable {

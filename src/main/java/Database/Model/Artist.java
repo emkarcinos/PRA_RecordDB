@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "name")
+        property = "name", scope = Artist.class)
 @Entity
 @Table(name = "artist")
 public class Artist implements Serializable {
@@ -20,13 +20,13 @@ public class Artist implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ContactInfo contactInfo;
 
-    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Album> albums = new HashSet<Album>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Label> labels = new ArrayList<>();
 
     public Artist() {

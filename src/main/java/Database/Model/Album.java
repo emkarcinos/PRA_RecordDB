@@ -12,7 +12,7 @@ import java.util.List;
 import org.hibernate.annotations.Type;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+        property = "id", scope = Album.class)
 @Entity
 @Table(name = "album")
 public class Album implements Serializable {
@@ -27,7 +27,7 @@ public class Album implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-dd-MM")
     @Column(name = "year")
-    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     public DateTime year;
 
     @ManyToOne(fetch = FetchType.LAZY)
