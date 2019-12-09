@@ -1,5 +1,8 @@
 package Database.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -8,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.annotations.Type;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 @Table(name = "album")
 public class Album implements Serializable {
@@ -20,6 +25,7 @@ public class Album implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-dd-MM")
     @Column(name = "year")
     @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
     public DateTime year;

@@ -1,0 +1,36 @@
+[
+    {
+      "id" : 1,
+      "name": "Litania: Music of Krzysztof Komeda",
+      "year": "1997-02-01",
+      "genre": {
+        "id": 6
+      },
+      "artist": {
+        "name": "Tomasz Stańko"
+      },
+      "label": {
+        "id": 1
+      },
+      "type": {
+        "id": 1
+      }
+    },
+    {
+      "id" : 2,
+      "name": "The Raven that Refused to Sing",
+      "year": "2013-02-25",
+      "genre": {
+        "id": 4
+      },
+      "artist": {
+        "name": "Steven Wilson"
+      },
+      "label": {
+        "id": 2
+      },
+      "type": {
+        "id": 1
+      }
+    }
+]

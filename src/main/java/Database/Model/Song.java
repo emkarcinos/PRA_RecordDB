@@ -1,10 +1,14 @@
 package Database.Model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "song")
+@IdClass(SongCompositeKey.class)
 public class Song implements Serializable {
 
     @Id
@@ -18,6 +22,7 @@ public class Song implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Id
     @ManyToOne(fetch = FetchType.LAZY)
     private Album album;
 

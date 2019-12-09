@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Jazz"
+    },
+    {
+      "id": 2,
+      "name": "Jazz Fusion",
+      "subgenre_of" : {
+        "id" : 1
+      }
+    },
+    {
+      "id": 3,
+      "name": "Contemporary Jazz",
+      "subgenre_of" : {
+        "id" : 1
+      }
+    },
+    {
+      "id": 4,
+      "name": "Rock"
+    },
+    {
+      "id": 5,
+      "name": "Progressive Rock",
+      "subgenre_of" : {
+        "id" : 4
+      }
+    },
+    {
+      "id": 6,
+      "name": "Math Rock",
+      "subgenre_of" : {
+        "id" : 5
+      }
+    },
+    {
+      "id" : 7,
+      "name" : "Avant-grade Jazz",
+      "subgenre_of" : {
+        "id" : 1
+      }
+    }
+  ]

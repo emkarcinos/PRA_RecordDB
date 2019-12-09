@@ -1,8 +1,13 @@
 package Database.Model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "artist")
 @Entity
 @Table(name = "contact_info")
 public class ContactInfo implements Serializable {

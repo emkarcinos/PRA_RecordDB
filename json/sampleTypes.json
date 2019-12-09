@@ -1,0 +1,14 @@
+[
+    {
+      "id" : 1,
+      "name" : "Album"
+    },
+    {
+      "id" : 2,
+      "name" : "EP"
+    },
+    {
+      "id" : 3,
+      "name" : "Re-release"
+    }
+  ]
