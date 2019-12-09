@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id", scope = Genre.class)
 @Entity
 @Table(name = "genre")
 public class Genre implements Serializable {
