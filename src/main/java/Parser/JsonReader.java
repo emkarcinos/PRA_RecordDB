@@ -1,22 +1,23 @@
-package JSON;
+package Parser;
 
 import Database.Model.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.List;
-
-public class Reader {
+public class JsonReader {
 
     public static List<Artist> createArtistsFromJson(String jsonPath){
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new Hibernate5Module());
         List<Artist> artists = null;
         try {
-            artists = mapper.reader().forType(new TypeReference<List<Artist>>(){}).readValue(new File(jsonPath));
+            File json = new File(jsonPath);
+            artists = mapper.reader().forType(new TypeReference<List<Artist>>(){}).readValue(json);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -66,6 +67,17 @@ public class Reader {
             e.printStackTrace();
         }
         return types;
+    }
+
+    public static List<Song> createSongsFromJson(String jsonPath){
+        ObjectMapper mapper = new ObjectMapper();
+        List<Song> songs = null;
+        try {
+            songs = mapper.reader().forType(new TypeReference<List<Song>>(){}).readValue(new File(jsonPath));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return songs;
     }
 
 }
