@@ -1,19 +1,17 @@
 package Database.Model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "artist", scope = ContactInfo.class)
 @Entity
 @Table(name = "contact_info")
 public class ContactInfo implements Serializable {
-
     @Id
-    @OneToOne(cascade = CascadeType.ALL)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @OneToOne
     private Artist artist;
 
     @Column(name = "webpage")
@@ -26,6 +24,10 @@ public class ContactInfo implements Serializable {
     private String spotifyUrl;
 
     public ContactInfo() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Artist getArtist() {
@@ -42,6 +44,10 @@ public class ContactInfo implements Serializable {
 
     public String getSpotifyUrl() {
         return spotifyUrl;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setArtist(Artist artist) {
