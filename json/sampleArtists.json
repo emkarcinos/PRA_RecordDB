@@ -1,38 +1,15 @@
 [
     {
       "name" : "Steven Wilson",
-      "contactInfo" : {
-        "webpage" : "http://stevenwilsonhq.com/sw/",
-        "spotifyUrl" : "https://open.spotify.com/artist/4X42BfuhWCAZ2swiVze9O0"
-      },
-      "labels" : [{
-        "id" : 2
-      }]
+      "labels" : [2]
     },
     {
-      "name" : "Tesseract",
-      "contactInfo" : {
-        "webpage" : "https://www.tesseractband.co.uk",
-        "spotifyUrl" : "https://open.spotify.com/artist/23ytwhG1pzX6DIVWRWvW1r"
-      },
-      "labels" : [{
-        "id" : 2
-      }]
+      "name" : "Tesseract"
     },
     {
-      "name" : "Tomasz Stańko",
-      "labels" : [{
-        "id" : 1
-      }]
+      "name" : "Tomasz Stańko"
     },
     {
-      "name" : "Pat Metheny",
-      "contactInfo" : {
-        "webpage" : "http://www.patmetheny.com",
-        "spotifyUrl" : "https://open.spotify.com/artist/3t58jfUhoMLYVO14XaUFLA"
-      },
-      "labels" : [{
-        "id" : 1
-      }]
+      "name": "Pat Metheny"
     }
   ]

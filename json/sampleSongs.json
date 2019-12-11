@@ -11,57 +11,43 @@
     "disc": 1,
     "number": 2,
     "name": "Sleep Safe and Warm",
-    "album" : {
-      "id" : 1
-    }
+    "album" : 1
   },
   {
     "disc": 1,
     "number": 3,
     "name": "Night-Time, Daytime Requiem",
-    "album" : {
-      "id" : 1
-    }
+    "album" : 1
   },
   {
     "disc": 1,
     "number": 4,
     "name": "Ballada",
-    "album" : {
-      "id" : 1
-    }
+    "album" : 1
   },
   {
     "disc": 1,
     "number": 5,
     "name": "Litania",
-    "album" : {
-      "id" : 1
-    }
+    "album" : 1
   },
   {
     "disc": 1,
     "number": 6,
     "name": "Repetition",
-    "album" : {
-      "id" : 1
-    }
+    "album" : 1
   },
   {
     "disc": 1,
     "number": 7,
     "name": "Ballad for Bernt",
-    "album" : {
-      "id" : 1
-    }
+    "album" : 1
   },
   {
     "disc": 1,
     "number": 8,
     "name": "The Witch",
-    "album" : {
-      "id" : 1
-    }
+    "album" : 1
   },
   {
     "disc": 1,
@@ -75,40 +61,30 @@
     "disc": 1,
     "number": 2,
     "name": "Drive Home",
-    "album" : {
-      "id" : 2
-    }
+    "album" : 2
   },
   {
     "disc": 1,
     "number": 3,
     "name": "The Holy Drinker",
-    "album" : {
-      "id" : 2
-    }
+    "album" : 2
   },
   {
     "disc": 1,
     "number": 4,
     "name": "The Pin Drop",
-    "album" : {
-      "id" : 2
-    }
+    "album" : 2
   },
   {
     "disc": 1,
     "number": 5,
     "name": "The Watchmaker",
-    "album" : {
-      "id" : 2
-    }
+    "album" : 2
   },
   {
     "disc": 1,
     "number": 6,
     "name": "The Raven That Refused to Sing",
-    "album" : {
-      "id" : 2
-    }
+    "album" : 2
   }
 ]
