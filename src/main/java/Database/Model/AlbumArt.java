@@ -7,11 +7,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "album", scope = AlbumArt.class)
+        property = "id", scope = AlbumArt.class)
 @Entity
 @Table(name = "album_art")
 public class AlbumArt implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @OneToOne
     private Album album;
 
@@ -24,6 +27,10 @@ public class AlbumArt implements Serializable {
     public AlbumArt() {
     }
 
+    public int getId() {
+        return id;
+    }
+
     public Album getAlbum() {
         return album;
     }
@@ -34,6 +41,10 @@ public class AlbumArt implements Serializable {
 
     public String getPath() {
         return path;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setAlbum(Album album) {

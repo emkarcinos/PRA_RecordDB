@@ -2,11 +2,11 @@ package Database.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import org.hibernate.annotations.Type;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id", scope = Release.class)
@@ -15,12 +15,12 @@ import org.hibernate.annotations.Type;
 public class Release implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
     @Column(name = "year")
-    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
+    @Type(type = "org.joda.time.contrib.hibernate.PersistentDateTime")
     private DateTime year;
 
     @Column(name = "format")

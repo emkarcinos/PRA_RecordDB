@@ -11,13 +11,17 @@ import java.util.List;
 import java.util.Set;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "name", scope = Artist.class)
+        property = "id", scope = Artist.class)
 @Entity
 @Table(name = "artist")
 public class Artist implements Serializable {
 
     @Id
-    @Column(name = "name", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -26,10 +30,14 @@ public class Artist implements Serializable {
     @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Album> albums = new HashSet<Album>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "artists", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Label> labels = new ArrayList<>();
 
     public Artist() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -46,6 +54,10 @@ public class Artist implements Serializable {
 
     public List<Label> getLabels() {
         return labels;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
