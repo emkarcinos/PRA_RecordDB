@@ -1,4 +1,4 @@
-package JSON;
+package Parser;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -9,24 +9,18 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-public class Writer<T> {
+public class JsonWriter<T> {
 
     public void serializeList(String filepath, List<T> objects) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         objectMapper.registerModule(new JodaModule());
-
-        File file = new File(filepath);
-        for (T obj : objects){
-            objectMapper.writeValue(file, obj);
-        }
+        objectMapper.writeValue(new File(filepath), objects);
     }
 
-    public static void serialize(String filepath, Serializable object) throws IOException {
+    public void serialize(String filepath, T object) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-
-        File file = new File(filepath);
-        objectMapper.writeValue(file, object);
+        objectMapper.writeValue(new File(filepath), object);
     }
 }
