@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @JsonTypeName("type")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
