@@ -1,7 +1,6 @@
 package Spring;
 
 import Database.Model.*;
-import io.swagger.models.Contact;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
