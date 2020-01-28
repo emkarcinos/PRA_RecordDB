@@ -5,9 +5,13 @@ import Spring.services.AlbumService;
 import io.swagger.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/api")
@@ -20,4 +24,29 @@ public class AlbumController {
     public Iterable<Album> list(Model model) {
         return albumService.listAllAlbums();
     }
+
+    @RequestMapping(value = "/albums", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Album> redirect(Model model) {
+        return albumService.listAllAlbums();
+    }
+
+    @RequestMapping(value = "/albums/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Album getById(@PathVariable("id") Integer id){
+        return albumService.getAlbumById(id);
+    }
+
+    @RequestMapping(value = "/albums", method = RequestMethod.POST)
+    public ResponseEntity<Album> create(@RequestBody @Valid @NotNull Album album){
+        albumService.saveAlbum(album);
+        return ResponseEntity.ok().body(album);
+    }
+
+    @RequestMapping(value = "/albums/{id}", method = RequestMethod.DELETE)
+    public RedirectView delete(HttpServletResponse response, @PathVariable Integer id){
+        albumService.deleteAlbum(id);
+        return new RedirectView("/api/albums", true);
+    }
+
+
+
 }
