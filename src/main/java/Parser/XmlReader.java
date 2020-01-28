@@ -10,12 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XmlReader {
-    public static List<ContactInfo> createContactInfosFromXml(String xmlpath){
+    public static List<ContactInfo> createContactInfosFromXml(String xmlpath) {
         XmlMapper mapper = new XmlMapper();
         List<ContactInfo> contacts = new ArrayList<>();
         try {
-            contacts =mapper.reader().forType(new TypeReference<List<ContactInfo>>(){}).readValue(new File(xmlpath));
-        } catch (IOException e){
+            contacts = mapper.reader().forType(new TypeReference<List<ContactInfo>>() {
+            }).readValue(new File(xmlpath));
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return contacts;
