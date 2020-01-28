@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Transactional
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id", scope = Artist.class)
 @Entity
@@ -27,10 +29,10 @@ public class Artist implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private ContactInfo contactInfo;
 
-    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Set<Album> albums = new HashSet<Album>();
 
-    @ManyToMany(mappedBy = "artists", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "artists", fetch = FetchType.EAGER)
     private List<Label> labels = new ArrayList<>();
 
     public Artist() {

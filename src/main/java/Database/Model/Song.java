@@ -1,5 +1,6 @@
 package Database.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -17,7 +18,7 @@ public class Song implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @Column(name = "disc")
     private int disc;
@@ -28,7 +29,8 @@ public class Song implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     private Album album;
 
     public Song() {
@@ -54,7 +56,7 @@ public class Song implements Serializable {
         return album;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

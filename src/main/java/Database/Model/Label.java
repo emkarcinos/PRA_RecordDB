@@ -27,10 +27,10 @@ public class Label implements Serializable {
     @Column(name = "webpage")
     private String webpage;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private List<Artist> artists = new ArrayList<>();
 
-    @OneToMany(mappedBy = "label", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "label", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Set<Album> albums = new HashSet<>();
 
     public Label() {

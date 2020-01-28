@@ -1,5 +1,6 @@
 package Database.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.annotations.Type;
@@ -19,14 +20,15 @@ public class Release implements Serializable {
     @Column(name = "id")
     private int id;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-dd-MM")
     @Column(name = "year")
-    @Type(type = "org.joda.time.contrib.hibernate.PersistentDateTime")
-    private DateTime year;
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    public DateTime year;
 
     @Column(name = "format")
     private String format;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Album album;
 
     public Release() {

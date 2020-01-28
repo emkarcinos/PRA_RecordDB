@@ -24,9 +24,6 @@ public class AlbumType implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "type", fetch = FetchType.LAZY)
-    private List<Album> albums = new ArrayList<>();
-
     public AlbumType() {
     }
 
@@ -38,19 +35,11 @@ public class AlbumType implements Serializable {
         return name;
     }
 
-    public List<Album> getAlbums() {
-        return albums;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setAlbums(List<Album> albums) {
-        this.albums = albums;
     }
 }
