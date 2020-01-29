@@ -1,7 +1,7 @@
 package Spring.controllers;
 
 import Database.Model.Album;
-import Spring.services.AlbumService;
+import Spring.services.Interfaces.AlbumService;
 import io.swagger.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

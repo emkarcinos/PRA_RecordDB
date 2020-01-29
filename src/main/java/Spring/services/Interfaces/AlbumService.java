@@ -1,4 +1,4 @@
-package Spring.services;
+package Spring.services.Interfaces;
 
 import Database.Model.Album;
 import org.springframework.stereotype.Service;
