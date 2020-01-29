@@ -1,6 +1,7 @@
 package Database.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -30,6 +31,7 @@ public class Label implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private List<Artist> artists = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "label", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Set<Album> albums = new HashSet<>();
 
