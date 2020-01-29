@@ -28,7 +28,10 @@ public class Label implements Serializable {
     @Column(name = "webpage")
     private String webpage;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "label_artist",
+                joinColumns = @JoinColumn(name = "label_id"),
+                inverseJoinColumns = @JoinColumn(name = "artist_id"))
     private List<Artist> artists = new ArrayList<>();
 
     @JsonIgnore

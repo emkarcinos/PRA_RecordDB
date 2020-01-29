@@ -1,6 +1,7 @@
 package Spring.repositories;
 
 import Database.Model.Album;
+import Database.Model.Label;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -17,4 +18,6 @@ public interface AlbumRepository extends CrudRepository<Album, Integer>, PagingA
     Integer checkIfExist(Integer id);
 
     Iterable<Album> getAlbumByGenreId(Integer id);
+
+    Iterable<Album> getAlbumByLabelId(Integer id);
 }
