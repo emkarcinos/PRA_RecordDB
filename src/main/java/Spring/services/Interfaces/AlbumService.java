@@ -15,4 +15,6 @@ public interface AlbumService {
     void deleteAlbum(Integer id);
 
     public Iterable<Album> listAllAlbumsPaging(Integer pageNr, Integer howManyOnPage);
+
+    Boolean checkIfExists(Integer id);
 }

@@ -1,9 +1,11 @@
 package Spring.controllers;
 
 import Database.Model.Album;
+import Database.Model.Artist;
 import Spring.services.Interfaces.AlbumService;
 import io.swagger.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +49,15 @@ public class AlbumController {
         return new RedirectView("/api/albums", true);
     }
 
+    @RequestMapping(value = "/albums", method = RequestMethod.PUT)
+    public ResponseEntity<Void> edit(@RequestBody @Valid @NotNull Album album) {
+        if(!albumService.checkIfExists(album.getId()))
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        else {
+            albumService.saveAlbum(album);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }
+    }
 
 
 }

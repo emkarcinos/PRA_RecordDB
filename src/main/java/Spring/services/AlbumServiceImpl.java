@@ -37,4 +37,9 @@ public class AlbumServiceImpl implements AlbumService {
     public Iterable<Album> listAllAlbumsPaging(Integer pageNr, Integer howManyOnPage) {
         return albumRepository.findAll(PageRequest.of(pageNr, howManyOnPage));
     }
+
+    @Override
+    public Boolean checkIfExists(Integer id) {
+        return albumRepository.checkIfExist((id)) > 0;
+    }
 }

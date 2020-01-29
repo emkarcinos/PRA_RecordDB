@@ -16,4 +16,5 @@ public interface AlbumRepository extends CrudRepository<Album, Integer>, PagingA
     @Query("select count(*) from Album a where a.id = ?1")
     Integer checkIfExist(Integer id);
 
+    Iterable<Album> getAlbumByGenreId(Integer id);
 }
