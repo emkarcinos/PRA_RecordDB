@@ -32,12 +32,12 @@ public class ArtistController {
     }
 
     @RequestMapping(value = "/artists/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Artist getById(@PathVariable("id") Integer id){
+    public Artist getById(@PathVariable("id") Integer id) {
         return artistService.getArtistById(id);
     }
 
     @RequestMapping(value = "/artists", method = RequestMethod.POST)
-    public ResponseEntity<Artist> create(@RequestBody @Valid @NotNull Artist artist){
+    public ResponseEntity<Artist> create(@RequestBody @Valid @NotNull Artist artist) {
         artistService.saveArtist(artist);
         return ResponseEntity.ok().body(artist);
     }
@@ -50,7 +50,7 @@ public class ArtistController {
 
     @RequestMapping(value = "/artists", method = RequestMethod.PUT)
     public ResponseEntity<Void> edit(@RequestBody @Valid @NotNull Artist artist) {
-        if(!artistService.checkIfExists(artist.getId()))
+        if (!artistService.checkIfExists(artist.getId()))
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         else {
             artistService.saveArtist(artist);

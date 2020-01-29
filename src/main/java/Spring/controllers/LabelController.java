@@ -51,7 +51,7 @@ public class LabelController {
 
     @RequestMapping(value = "/labels", method = RequestMethod.PUT)
     public ResponseEntity<Void> edit(@RequestBody @Valid @NotNull Label label) {
-        if(!labelService.checkIfExists(label.getId()))
+        if (!labelService.checkIfExists(label.getId()))
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         else {
             labelService.saveLabel(label);
@@ -60,7 +60,7 @@ public class LabelController {
     }
 
     @RequestMapping(value = "/labels/{id}", method = RequestMethod.DELETE)
-    public RedirectView delete (HttpServletResponse response, @PathVariable Integer id) {
+    public RedirectView delete(HttpServletResponse response, @PathVariable Integer id) {
         labelService.deleteLabel(id);
         return new RedirectView("/api/labels", true);
     }

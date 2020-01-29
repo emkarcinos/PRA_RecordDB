@@ -1,6 +1,5 @@
 package Spring.repositories;
 
-import Database.Model.Genre;
 import Database.Model.Label;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

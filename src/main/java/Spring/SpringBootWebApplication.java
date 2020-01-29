@@ -13,7 +13,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -49,6 +48,7 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
                 .select().apis(RequestHandlerSelectors.basePackage("com.pracownia.spring.controllers"))
                 .build();
     }
+
     @Bean
     public Hibernate5Module datatypeHibernateModule() {
         return new Hibernate5Module();

@@ -1,7 +1,6 @@
 package Spring.controllers;
 
 import Database.Model.Album;
-import Database.Model.Artist;
 import Database.Model.Genre;
 import Spring.services.Interfaces.GenreService;
 import io.swagger.models.Model;
@@ -45,14 +44,14 @@ public class GenreController {
     }
 
     @RequestMapping(value = "/genres/{id}", method = RequestMethod.DELETE)
-    public RedirectView delete(HttpServletResponse response, @PathVariable Integer id){
+    public RedirectView delete(HttpServletResponse response, @PathVariable Integer id) {
         genreService.deleteGenre(id);
         return new RedirectView("/api/genres", true);
     }
 
     @RequestMapping(value = "/genres", method = RequestMethod.PUT)
     public ResponseEntity<Void> edit(@RequestBody @Valid @NotNull Genre genre) {
-        if(!genreService.checkIfExists(genre.getId()))
+        if (!genreService.checkIfExists(genre.getId()))
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         else {
             genreService.saveGenre(genre);

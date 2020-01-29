@@ -1,7 +1,6 @@
 package Spring.controllers;
 
 import Database.Model.Album;
-import Database.Model.Artist;
 import Spring.services.Interfaces.AlbumService;
 import io.swagger.models.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,25 +32,25 @@ public class AlbumController {
     }
 
     @RequestMapping(value = "/albums/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Album getById(@PathVariable("id") Integer id){
+    public Album getById(@PathVariable("id") Integer id) {
         return albumService.getAlbumById(id);
     }
 
     @RequestMapping(value = "/albums", method = RequestMethod.POST)
-    public ResponseEntity<Album> create(@RequestBody @Valid @NotNull Album album){
+    public ResponseEntity<Album> create(@RequestBody @Valid @NotNull Album album) {
         albumService.saveAlbum(album);
         return ResponseEntity.ok().body(album);
     }
 
     @RequestMapping(value = "/albums/{id}", method = RequestMethod.DELETE)
-    public RedirectView delete(HttpServletResponse response, @PathVariable Integer id){
+    public RedirectView delete(HttpServletResponse response, @PathVariable Integer id) {
         albumService.deleteAlbum(id);
         return new RedirectView("/api/albums", true);
     }
 
     @RequestMapping(value = "/albums", method = RequestMethod.PUT)
     public ResponseEntity<Void> edit(@RequestBody @Valid @NotNull Album album) {
-        if(!albumService.checkIfExists(album.getId()))
+        if (!albumService.checkIfExists(album.getId()))
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         else {
             albumService.saveAlbum(album);
