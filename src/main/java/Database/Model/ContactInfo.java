@@ -11,9 +11,6 @@ public class ContactInfo implements Serializable {
     @Column(name = "id")
     private int id;
 
-    @OneToOne
-    private Artist artist;
-
     @Column(name = "webpage")
     private String webpage;
 
@@ -30,10 +27,6 @@ public class ContactInfo implements Serializable {
         return id;
     }
 
-    public Artist getArtist() {
-        return artist;
-    }
-
     public String getWebpage() {
         return webpage;
     }
@@ -48,10 +41,6 @@ public class ContactInfo implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
     }
 
     public void setWebpage(String webpage) {
