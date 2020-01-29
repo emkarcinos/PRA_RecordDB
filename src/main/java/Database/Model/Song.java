@@ -9,7 +9,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "song")
-@IdClass(SongCompositeKey.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id", scope = Song.class)
 public class Song implements Serializable {
