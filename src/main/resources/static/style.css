@@ -1,0 +1,53 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  }
+
+header {
+  display: flex;
+  width: 60%;
+  height: 10vh;
+  margin: auto;
+  align-items: center;
+}
+
+.logo-container,.nav-links {
+  display: flex;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+nav {
+  flex: 2;
+} 
+
+.nav-links {
+  justify-content: space-around;
+  list-style: none; 
+}
+
+.button1,
+.button2,
+.button3 {
+  border: none;
+  background: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+main {
+  display: flex;
+  width: 40%;
+  margin: auto;
+  align-items: center;
+  background-color:gainsboro;
+  align-content: center;
+}
