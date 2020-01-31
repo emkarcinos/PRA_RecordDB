@@ -58,5 +58,9 @@ public class AlbumController {
         }
     }
 
+    @RequestMapping(value = "/albums/count", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer count(Model model) {
+        return albumService.albumsCount();
+    }
 
 }

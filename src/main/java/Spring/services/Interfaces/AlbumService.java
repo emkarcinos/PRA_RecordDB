@@ -17,4 +17,6 @@ public interface AlbumService {
     public Iterable<Album> listAllAlbumsPaging(Integer pageNr, Integer howManyOnPage);
 
     Boolean checkIfExists(Integer id);
+
+    Integer albumsCount();
 }

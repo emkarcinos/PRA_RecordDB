@@ -42,4 +42,9 @@ public class AlbumServiceImpl implements AlbumService {
     public Boolean checkIfExists(Integer id) {
         return albumRepository.checkIfExist((id)) > 0;
     }
+
+    @Override
+    public Integer albumsCount() {
+        return albumRepository.getAlbumsCount();
+    }
 }

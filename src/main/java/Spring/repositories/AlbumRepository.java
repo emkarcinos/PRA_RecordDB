@@ -19,4 +19,8 @@ public interface AlbumRepository extends CrudRepository<Album, Integer>, PagingA
     Iterable<Album> getAlbumByGenreId(Integer id);
 
     Iterable<Album> getAlbumByLabelId(Integer id);
+
+    @Query("select count(*) from Album")
+
+    Integer getAlbumsCount();
 }
