@@ -18,4 +18,7 @@ public interface ArtistRepository extends CrudRepository<Artist, Integer>, Pagin
     Integer checkIfExists(Integer id);
 
     Iterable<Artist> getArtistByLabels(Label label);
+
+    @Query("SELECT COUNT(*) FROM Artist ")
+    Integer getArtistsCount();
 }

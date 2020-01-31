@@ -58,5 +58,9 @@ public class ArtistController {
         }
     }
 
+    @RequestMapping(value = "/artists/count", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer count(Model model) {
+        return artistService.getCount();
+    }
 
 }

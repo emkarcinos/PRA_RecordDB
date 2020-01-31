@@ -59,4 +59,9 @@ public class GenreController {
         }
     }
 
+    @RequestMapping(value = "/genres/count", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer count(){
+        return genreService.getCount();
+    }
+
 }

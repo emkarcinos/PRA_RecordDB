@@ -46,4 +46,9 @@ public class GenreServiceImpl implements GenreService {
     public Boolean checkIfExists(Integer id) {
         return genreRepository.checkIfExists((id)) > 0;
     }
+
+    @Override
+    public Integer getCount() {
+        return genreRepository.getGenresCount();
+    }
 }

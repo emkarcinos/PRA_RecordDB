@@ -15,4 +15,7 @@ public interface GenreRepository extends CrudRepository<Genre, Integer>, PagingA
 
     @Query("SELECT COUNT(*) FROM Genre g WHERE g.id = ?1")
     Integer checkIfExists(Integer id);
+
+    @Query("SELECT COUNT(*) FROM Genre")
+    Integer getGenresCount();
 }

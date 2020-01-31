@@ -36,4 +36,9 @@ public class ArtistServiceImpl implements ArtistService {
     public Boolean checkIfExists(Integer id) {
         return artistRepository.checkIfExists((id)) > 0;
     }
+
+    @Override
+    public Integer getCount() {
+        return artistRepository.getArtistsCount();
+    }
 }

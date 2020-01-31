@@ -18,4 +18,6 @@ public interface GenreService {
     void deleteGenre(Integer id);
 
     Boolean checkIfExists(Integer id);
+
+    Integer getCount();
 }

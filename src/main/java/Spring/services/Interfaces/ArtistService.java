@@ -15,4 +15,6 @@ public interface ArtistService {
     void deleteAlbum(Integer id);
 
     Boolean checkIfExists(Integer id);
+
+    Integer getCount();
 }
