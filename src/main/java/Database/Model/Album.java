@@ -7,10 +7,12 @@ import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id", scope = Album.class)
 @Entity
@@ -36,7 +38,7 @@ public class Album implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Artist artist;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Label label;
 
     @ManyToOne(fetch = FetchType.EAGER)

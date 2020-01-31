@@ -32,7 +32,7 @@ public class Artist implements Serializable {
     @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Set<Album> albums = new HashSet<Album>();
 
-    @ManyToMany(mappedBy = "artists", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "artists", fetch = FetchType.LAZY)
     private List<Label> labels = new ArrayList<>();
 
     public Artist() {
