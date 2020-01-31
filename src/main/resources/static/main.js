@@ -22,14 +22,7 @@ function createArtistsTable(artistsData) {
             var tblbottom = "</table>";
             var tbl = tbltop + main + tblbottom;
             document.getElementById(outputId).innerHTML = tbl;
-            
-            var artist1btn = document.querySelector('.artist1');
-
-            artist1btn.addEventListener('click', function(){
-                document.getElementById(outputId).innerHTML = "1242"
-            });
 }
-
 
 function createAlbumsTable(albumsData) {
     var tbltop = `<table cellspacing="10"><tr><th>Id</th><th>Name</th><th>Year</th><th>Artist</th></tr>`;
